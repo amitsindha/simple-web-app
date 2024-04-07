@@ -14,3 +14,9 @@
         - libvirt-daemon
         - virt-manager 
       #become: true
+    - name: Install NGINX
+      ansible.builtin.package:
+        name: 
+          - nginx
+        state: present
+      
