@@ -78,17 +78,4 @@
         src: app.py
         dest: /opt/app.py
 
-    - name: Start web server
-      shell: FLASK_APP=/opt/app.py nohup flask run --host=0.0.0.0 &
-    - name: install kvm packages on Debian 10,9,..,Ubuntu 20.04,18.04,e.t.c
-      package:
-        name:
-          - bridge-utils
-          - qemu-kvm
-          - virtinst
-          - libvirt-daemon
-          - virt-manager
-        state: latest
-        update_cache: yes
-        cache_valid_time: 5400
-        allow_unauthenticated: yes
+  
