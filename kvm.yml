@@ -1,0 +1,19 @@
+- name: Deploy a web application
+  hosts: db_and_web_server1,db_and_web_server2
+  tasks:
+    - name: print hostname
+      ansible.builtin.debug:
+        msg: my hostname are as {{ inventory_hostname}} and {{ ansible_hostname  }} with fqdn {{ ansible_fqdn }}
+    - name: install kvm packages on Debian 10,9,..,Ubuntu 20.04,18.04,e.t.c
+      package:
+        name:
+          - bridge-utils
+          - qemu-kvm
+          - virtinst
+          - libvirt-daemon
+          - virt-manager
+        state: latest
+        update_cache: yes
+        cache_valid_time: 5400
+        allow_unauthenticated: yes
+      become: true
