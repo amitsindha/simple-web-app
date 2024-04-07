@@ -10,17 +10,7 @@
         state: present
       with_items:
         - bridge-utils
-        - genisoimage
-        - libguestfs-tools
-        - libnss-libvirt
-        - libosinfo-bin
-        - libvirt-clients
-        - libvirt-daemon-system
-        - libvirt-dev
-        - python-lxml
-        - python3-libvirt
         - qemu-kvm
-        - qemu-utils
-        - virt-top
-        - virtinst  
+        - libvirt-daemon
+        - virt-manager 
       #become: true
