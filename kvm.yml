@@ -4,19 +4,9 @@
     - name: print hostname
       ansible.builtin.debug:
         msg: my hostname are as {{ inventory_hostname}} and {{ ansible_hostname  }} with fqdn {{ ansible_fqdn }}
-    - name: install kvm packages on Debian 10,9,..,Ubuntu 20.04,18.04,e.t.c
-      yum:
-        name: "{{ item }}"
-        state: present
-      with_items:
-        - bridge-utils
-        - qemu-kvm
-        - libvirt-daemon
-        - virt-manager 
-      #become: true
-    - name: Install NGINX
-      ansible.builtin.package:
-        name: 
-          - nginx
-        state: present
+    - name: Get VMs list
+      community.libvirt.virt:
+        command: list_vms
+      register: existing_vms
+      changed_when: no
       
